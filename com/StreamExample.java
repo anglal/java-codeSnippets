@@ -42,8 +42,52 @@ public class StreamExample {
 		List<Integer> newList2 = intList2.stream().map(x-> x * -2).collect(Collectors.toList());
 		System.out.println(newList2);
 		
+//		Create the array of items
+		String[] strArray = new String[] { "Pen" ,"Pencil", "Book"};
 		
+		Stream<String> strStream = Stream.of(strArray);
+
+//		Print everything from stream of items
+		System.out.println();
+		strStream.forEach((s)-> {System.out.println(s);});
+		
+//		Create a stream of list of items
+		List<String> countries = List.of("Nepal", "Netherlands", "China", "India", "USA");
+//		Find the countries that start with letter "N";
+		
+		List<String> contWithN = countries.stream().filter(x -> x.startsWith("N")).collect(Collectors.toList());
+		System.out.println(contWithN);
+		System.out.println();
+		
+//		Find the squareroot of given list of numbers
+		List<Integer> intList01 = Arrays.asList(4, 9, 16, 25);
+		
+		intList01.stream().map(x-> Math.sqrt(x)).forEach(x->System.out.println(x));
+		System.out.println();
+		
+		
+//		Sort the given list of numbers
+		
+		List<String> names = List.of("Jhon", "Maria","Jeena","Mark");
+		List<Integer> ages = Arrays.asList(23,12,43,25,87,56,3,4);
+		
+		names.stream().sorted().forEach(x -> System.out.println(x));
+		System.out.println();
+		ages.stream().sorted().forEach( age -> System.out.println(age));
+		System.out.println();
+		
+		
+//		Find the minimum and maximum age
+		int ageMax = ages.stream().max((age1, age2)-> age1.compareTo(age2)).get();
+		System.out.println(ageMax);
+		
+		System.out.println();
+		ages.stream().forEach(System.out::println);
+		
+
 	
 	}
 
+	
+	
 }
